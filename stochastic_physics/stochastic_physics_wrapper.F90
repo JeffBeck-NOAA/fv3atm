@@ -187,6 +187,11 @@ module stochastic_physics_wrapper_mod
                  do nb=1,Atm_block%nblks
                      GFS_Data(nb)%Coupling%spp_wts_mp(:,:) = spp_wts(nb,1:GFS_Control%blksz(nb),:,v)
                      GFS_Data(nb)%Intdiag%spp_wts_mp(:,:) = spp_wts(nb,1:GFS_Control%blksz(nb),:,v)
+                 end do 
+               case('gwd')
+                 do nb=1,Atm_block%nblks
+                     GFS_Data(nb)%Coupling%spp_wts_gwd(:,:) = spp_wts(nb,1:GFS_Control%blksz(nb),:,v)
+                     GFS_Data(nb)%Intdiag%spp_wts_gwd(:,:) = spp_wts(nb,1:GFS_Control%blksz(nb),:,v)
                  end do
                case('rad')
                  do nb=1,Atm_block%nblks

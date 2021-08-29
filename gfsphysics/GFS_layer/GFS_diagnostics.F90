@@ -2018,6 +2018,17 @@ module GFS_diagnostics
 
     idx = idx + 1
     ExtDiag(idx)%axes = 3
+    ExtDiag(idx)%name = 'spp_wts_gwd'
+    ExtDiag(idx)%desc = 'spp gwd perturbation wts'
+    ExtDiag(idx)%unit = 'm/s'
+    ExtDiag(idx)%mod_name = 'gfs_phys'
+    allocate (ExtDiag(idx)%data(nblks))
+    do nb = 1,nblks
+      ExtDiag(idx)%data(nb)%var3 => IntDiag(nb)%spp_wts_gwd(:,:)
+    enddo
+    
+    idx = idx + 1
+    ExtDiag(idx)%axes = 3
     ExtDiag(idx)%name = 'spp_wts_rad'
     ExtDiag(idx)%desc = 'spp rad perturbation wts'
     ExtDiag(idx)%unit = 'm/s'
